@@ -4,8 +4,8 @@
 
 ## Components
 
-* PC
-* IMEM
+* PC (pc.sv)            - done
+* IMEM (imem.sv)        - done
 * ALU (alu.sv)          - done
 * RegFile (regfile.sv)  - done
 * ImmGen (immgen.sv)    - done
