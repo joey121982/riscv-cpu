@@ -1,4 +1,4 @@
-`include "immtypes.svh"
+`include "imm_types.svh"
 
 module immgen (
     input   logic   [31:0]  inst,

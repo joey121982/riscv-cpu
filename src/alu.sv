@@ -1,4 +1,4 @@
-`include "opcodes.svh"
+`include "alu_opcodes.svh"
 
 module alu (
     input   alu_opcode_t    opcode,

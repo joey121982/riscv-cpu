@@ -1,4 +1,4 @@
-# RISC-V R32I Single-Cycle CPU
+# RISC-V RV32I Single-Cycle CPU
 
 # Design
 
@@ -10,9 +10,9 @@
 * RegFile (regfile.sv)  - done
 * ImmGen (immgen.sv)    - done
 * BCE (bce.sv)          - done
-* DMEM
-* CU
-* Top
+* DMEM (dmem.sv)        - done
+* CU (cu.sv)
+* Top (top.sv)
 
 # UVM Verification
 

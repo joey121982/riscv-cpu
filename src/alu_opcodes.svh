@@ -1,5 +1,5 @@
-`ifndef OPCODES_SVH
-`define OPCODES_SVH
+`ifndef ALU_OPCODES_SVH
+`define ALU_OPCODES_SVH
 
 typedef enum logic [3:0] {
     ALU_ADD,
@@ -14,4 +14,4 @@ typedef enum logic [3:0] {
     ALU_SLTU
 } alu_opcode_t;
 
-`endif // OPCODES_SVH
+`endif // ALU_OPCODES_SVH
