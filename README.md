@@ -1,9 +1,8 @@
 # RISC-V RV32I Single-Cycle CPU
 
-# Design
+## Design
 
-## Components
-
+#### Components
 * PC (pc.sv)            - done
 * IMEM (imem.sv)        - done
 * ALU (alu.sv)          - done
@@ -14,6 +13,6 @@
 * CU (cu.sv)
 * Top (top.sv)
 
-# UVM Verification
+## UVM Verification
 
 > Not started yet.
