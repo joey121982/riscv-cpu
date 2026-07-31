@@ -3,7 +3,7 @@ module imem (
     output  logic   [31:0]  inst
 );
 
-logic [31:0] memory [8192];
+logic [31:0] memory [0:8191];
 
 assign inst = memory[addr[14:2]];   // divide the address by 4 by truncating
 
