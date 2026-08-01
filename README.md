@@ -3,13 +3,13 @@
 ## Design
 
 #### Components
-* PC (pc.sv)            - done
-* IMEM (imem.sv)        - done
-* ALU (alu.sv)          - done
-* RegFile (regfile.sv)  - done
-* ImmGen (immgen.sv)    - done
-* BCE (bce.sv)          - done
-* DMEM (dmem.sv)        - done
+* PC (pc.sv)
+* IMEM (imem.sv)
+* ALU (alu.sv)
+* RegFile (regfile.sv)
+* ImmGen (immgen.sv)
+* BCE (bce.sv)
+* DMEM (dmem.sv)
 * CU (cu.sv)
 * Top (top.sv)
 

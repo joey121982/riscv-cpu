@@ -19,6 +19,11 @@ typedef enum logic {
     ALU_SRC_IMM
 } alu_src_t;
 
+typedef enum logic {
+    ALU_SRC_RS1,
+    ALU_SRC_PC
+} alu_src_operand1_t;
+
 typedef enum logic [6:0] {
     OP_LOAD   = 7'b0000011,
     OP_IMM    = 7'b0010011,
@@ -46,6 +51,6 @@ typedef enum logic [2:0] {
 typedef enum logic [6:0] {
     F7_ADD_SRL = 7'b0000000,
     F7_SUB_SRA = 7'b0100000
-} funct7_t
+} funct7_t;
 
 `endif // CU_TYPES_SVH
