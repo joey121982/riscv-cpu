@@ -28,7 +28,8 @@ typedef enum logic [6:0] {
     OP_LUI    = 7'b0110111,
     OP_BRANCH = 7'b1100011,
     OP_JALR   = 7'b1100111,
-    OP_JAL    = 7'b1101111 
+    OP_JAL    = 7'b1101111,
+    OP_SYSTEM = 7'b1110011  // not supported
 } pc_opcode_t;
 
 typedef enum logic [2:0] {
