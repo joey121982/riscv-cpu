@@ -2,6 +2,7 @@
 `include "alu_opcodes.svh"
 `include "imm_types.svh"
 `include "branchtypes.svh"
+`include "dmem_types.svh"
 
 module top (
     input logic clk,
@@ -16,23 +17,24 @@ logic [31:0] pc_target;
 logic [31:0] instr;
 
 // Instruction Decode
-logic [4:0]  rs1;
-logic [4:0]  rs2;
-logic [4:0]  rd;
-pc_opcode_t  opcode;
-funct3_t     funct3;
-funct7_t     funct7;
+logic       [4:0]   rs1;
+logic       [4:0]   rs2;
+logic       [4:0]   rd;
+pc_opcode_t         opcode;
+funct3_t            funct3;
+funct7_t            funct7;
 
 // Control Unit
-pc_src_t           pc_src;
-result_src_t       result_src;
-logic              mem_we;
-alu_opcode_t       alu_op;
-alu_src_t          alu_src;
-alu_src_operand1_t alu_src_operand1;
-imm_t              imm_type;
-logic              reg_we;
-logic              bce_eval; 
+pc_src_t            pc_src;
+result_src_t        result_src;
+logic               mem_we;
+alu_opcode_t        alu_op;
+alu_src_t           alu_src;
+alu_src_operand1_t  alu_src_operand1;
+imm_t               imm_type;
+logic               reg_we;
+logic               bce_eval; 
+mem_size_t          mem_size;
 
 // Datapath
 logic [31:0] rf_data1;
@@ -88,6 +90,7 @@ cu my_cu (
     .pc_src(pc_src),
     .result_src(result_src),
     .mem_we(mem_we),
+    .mem_size(mem_size),
     .alu_op(alu_op),
     .alu_src(alu_src),
     .alu_src_operand1(alu_src_operand1),
@@ -144,6 +147,7 @@ dmem my_dmem (
     .we(mem_we),
     .addr(alu_result),
     .w_data(rf_data2),
+    .mem_size(mem_size),
     
     .r_data(dmem_rdata)
 );

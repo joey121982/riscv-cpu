@@ -1,19 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.128 (w)1999-2026 BSI
-[*] Sat Aug  1 17:37:53 2026
+[*] Sat Aug  1 19:42:19 2026
 [*]
 [dumpfile] "/home/joey/work/digitaldev/riscv-cpu/dump.vcd"
-[dumpfile_mtime] "Sat Aug  1 17:37:01 2026"
-[dumpfile_size] 21675
+[dumpfile_mtime] "Sat Aug  1 19:37:55 2026"
+[dumpfile_size] 1014436
 [savefile] "/home/joey/work/digitaldev/riscv-cpu/signals.gtkw"
 [timestart] 0
 [size] 2451 1333
-[pos] -23 -21
-*-3.900000 9 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-3.300000 9 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
 [treeopen] tb.dut.
 [sst_width] 241
-[signals_width] 150
+[signals_width] 247
 [sst_expanded] 1
 [sst_vpaned_height] 573
 @28
@@ -22,7 +22,7 @@ tb.dut.rst
 @22
 tb.dut.pc_reg[31:0]
 tb.dut.instr[31:0]
-@800200
+@c00200
 -register file
 @22
 tb.dut.my_regfile.r_addr1[4:0]
@@ -65,7 +65,23 @@ tb.dut.my_regfile.regs[31][31:0]
 @22
 tb.dut.my_regfile.w_addr[4:0]
 tb.dut.my_regfile.w_data[31:0]
-@1000200
+@1401200
 -register file
+@800200
+-data memory
+@22
+tb.dut.my_dmem.addr[31:0]
+@28
+tb.dut.my_dmem.mem_size[2:0]
+@420
+tb.dut.my_dmem.r_data[31:0]
+@22
+tb.dut.my_dmem.raw_word[31:0]
+@420
+tb.dut.my_dmem.w_data[31:0]
+@28
+tb.dut.my_dmem.we
+@1000200
+-data memory
 [pattern_trace] 1
 [pattern_trace] 0

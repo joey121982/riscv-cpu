@@ -1,6 +1,7 @@
 `include "cu_types.svh"
 `include "alu_opcodes.svh"
 `include "imm_types.svh"
+`include "dmem_types.svh"
 
 module cu (
     input   pc_opcode_t opcode,
@@ -11,6 +12,7 @@ module cu (
     output  pc_src_t            pc_src,
     output  result_src_t        result_src,
     output  logic               mem_we,
+    output  mem_size_t          mem_size,
     output  alu_opcode_t        alu_op,
     output  alu_src_t           alu_src,
     output  alu_src_operand1_t  alu_src_operand1,
@@ -23,6 +25,7 @@ always_comb begin
     pc_src              = PC_NORMAL;
     result_src          = RES_ALU;
     mem_we              = 1'b0;
+    mem_size            = MEM_SIZE_W;
     reg_we              = 1'b0;
     alu_src             = ALU_SRC_REG;
     alu_src_operand1    = ALU_SRC_RS1;
@@ -36,6 +39,7 @@ always_comb begin
             alu_op      = ALU_ADD;
             result_src  = RES_MEM;
             reg_we      = 1'b1;
+            mem_size    = mem_size_t'(funct3);
         end
 
         OP_IMM: begin
@@ -75,6 +79,7 @@ always_comb begin
             alu_src     = ALU_SRC_IMM;
             alu_op      = ALU_ADD;
             mem_we      = 1'b1;
+            mem_size    = mem_size_t'(funct3);
         end
         
         OP_OP: begin
