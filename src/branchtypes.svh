@@ -8,6 +8,6 @@ typedef enum logic [2:0] {
     BR_GE,
     BR_LTU,
     BR_GEU
-} br_t
+} br_t;
 
 `endif // BRANCHTYPES_SVH

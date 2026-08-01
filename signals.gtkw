@@ -1,0 +1,71 @@
+[*]
+[*] GTKWave Analyzer v3.3.128 (w)1999-2026 BSI
+[*] Sat Aug  1 17:37:53 2026
+[*]
+[dumpfile] "/home/joey/work/digitaldev/riscv-cpu/dump.vcd"
+[dumpfile_mtime] "Sat Aug  1 17:37:01 2026"
+[dumpfile_size] 21675
+[savefile] "/home/joey/work/digitaldev/riscv-cpu/signals.gtkw"
+[timestart] 0
+[size] 2451 1333
+[pos] -23 -21
+*-3.900000 9 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.dut.
+[sst_width] 241
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 573
+@28
+tb.dut.clk
+tb.dut.rst
+@22
+tb.dut.pc_reg[31:0]
+tb.dut.instr[31:0]
+@800200
+-register file
+@22
+tb.dut.my_regfile.r_addr1[4:0]
+tb.dut.my_regfile.r_addr2[4:0]
+tb.dut.my_regfile.r_data1[31:0]
+tb.dut.my_regfile.r_data2[31:0]
+@420
+tb.dut.my_regfile.regs[0][31:0]
+tb.dut.my_regfile.regs[1][31:0]
+tb.dut.my_regfile.regs[2][31:0]
+tb.dut.my_regfile.regs[3][31:0]
+tb.dut.my_regfile.regs[4][31:0]
+tb.dut.my_regfile.regs[5][31:0]
+tb.dut.my_regfile.regs[6][31:0]
+tb.dut.my_regfile.regs[7][31:0]
+tb.dut.my_regfile.regs[8][31:0]
+tb.dut.my_regfile.regs[9][31:0]
+tb.dut.my_regfile.regs[10][31:0]
+tb.dut.my_regfile.regs[11][31:0]
+tb.dut.my_regfile.regs[12][31:0]
+tb.dut.my_regfile.regs[13][31:0]
+tb.dut.my_regfile.regs[14][31:0]
+tb.dut.my_regfile.regs[15][31:0]
+tb.dut.my_regfile.regs[16][31:0]
+tb.dut.my_regfile.regs[17][31:0]
+tb.dut.my_regfile.regs[18][31:0]
+tb.dut.my_regfile.regs[19][31:0]
+tb.dut.my_regfile.regs[20][31:0]
+tb.dut.my_regfile.regs[21][31:0]
+tb.dut.my_regfile.regs[22][31:0]
+tb.dut.my_regfile.regs[23][31:0]
+tb.dut.my_regfile.regs[24][31:0]
+tb.dut.my_regfile.regs[25][31:0]
+tb.dut.my_regfile.regs[26][31:0]
+tb.dut.my_regfile.regs[27][31:0]
+tb.dut.my_regfile.regs[28][31:0]
+tb.dut.my_regfile.regs[29][31:0]
+tb.dut.my_regfile.regs[30][31:0]
+tb.dut.my_regfile.regs[31][31:0]
+@22
+tb.dut.my_regfile.w_addr[4:0]
+tb.dut.my_regfile.w_data[31:0]
+@1000200
+-register file
+[pattern_trace] 1
+[pattern_trace] 0

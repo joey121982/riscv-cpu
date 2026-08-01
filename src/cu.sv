@@ -137,7 +137,7 @@ always_comb begin
             // NOT SUPPORTED
         end
 
-        default: W;
+        default: ;
     endcase
 end
 

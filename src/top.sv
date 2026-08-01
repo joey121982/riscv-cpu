@@ -66,8 +66,8 @@ end
 
 // Instruction Memory
 imem my_imem (
-    .pc(pc_reg),
-    .instr(instr)
+    .addr(pc_reg),
+    .inst(instr)
 );
 
 // Slice the 32-bit instruction into components
