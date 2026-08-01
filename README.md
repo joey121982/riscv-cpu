@@ -20,11 +20,12 @@ Inside the ```hextb``` directory, you can find a testbench that is configured to
 To use this testbench, simply run
 ```make hex FILE="program name"```
 from the root of the project.
-> You can also create new folders inside hextb/examples/ containing .c and .s source files.
+> You can also create new folders inside ```hextb/examples/``` containing .c and .s source files.
 > Then, when calling ```make hex``` with FILE pointing to this new folder, the Makefile will compile your program and run the testbench with it.
 
-After this, you can view the waveforms using GTKWave via
-```make waves```
+After this, you can view the waveforms using GTKWave via ```make waves```. Also included is a ```signals.gtkw``` file already containing important signals, which can be loaded directly into GTKWave when viewing waveforms.
+
+> The project can be cleaned using ```make clean```
 
 ## UVM Verification
 
