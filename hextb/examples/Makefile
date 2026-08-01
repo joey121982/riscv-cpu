@@ -5,16 +5,24 @@ OBJDUMP = $(PREFIX)objdump
 
 ARCH    = -march=rv32i -mabi=ilp32
 
-CFLAGS  = $(ARCH) -O0 -nostdlib -nostartfiles -Ttext 0x0
-
 src ?= default
 
-SRCS = $(wildcard $(src)/*.c) $(wildcard $(src)/*.s) $(wildcard $(src)/*.S)
+LDSCRIPT = $(wildcard $(src)/*.ld)
+
+ifneq ($(LDSCRIPT),)
+    LINKER_FLAG = -T $(firstword $(LDSCRIPT))
+else
+    LINKER_FLAG = -Ttext 0x0
+endif
+
+CFLAGS  = $(ARCH) -O0 -nostdlib -nostartfiles $(LINKER_FLAG)
+
+SRCS = $(wildcard $(src)/*.s) $(wildcard $(src)/*.S) $(wildcard $(src)/*.c)
 
 .PHONY: all clean
 
 all:
-	@echo "Compiling sources from $(src)/..."
+	@echo "Compiling sources from $(src)/ using $(LINKER_FLAG)..."
 	$(CC) $(CFLAGS) $(SRCS) -o $(src).elf
 	$(OBJCOPY) -O verilog --verilog-data-width=4 $(src).elf $(src).hex
 	$(OBJDUMP) -d -M numeric,no-aliases $(src).elf > $(src).dump

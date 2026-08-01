@@ -36,7 +36,7 @@ initial begin
     #2;
     rst = 0;
 
-    #1000;
+    #100000;
     
     $display("Simulation finished.");
     $finish;
