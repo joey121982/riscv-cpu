@@ -6,9 +6,22 @@ module tb ();
 logic   clk;
 logic   rst;
 
-top dut (
+localparam int IO_PORTS = 3;
+localparam logic [31:0] MMIO_BASE = 32'h8000;
+
+logic [31:0] io_in  [0:IO_PORTS-1];
+logic [31:0] io_out [0:IO_PORTS-1];
+logic [31:0] io_dir [0:IO_PORTS-1];
+
+core #(
+    .IO_PORTS(IO_PORTS),
+    .MMIO_BASE(MMIO_BASE)
+) dut (
     .clk(clk),
-    .rst(rst)
+    .rst(rst),
+    .io_in(io_in),
+    .io_out(io_out),
+    .io_dir(io_dir)
 );
 
 initial begin
@@ -23,6 +36,10 @@ end
 
 initial begin
     string hex_file;
+    
+    for (int i = 0; i < IO_PORTS; i++) begin
+        io_in[i] = 32'd0;
+    end
     
     if ($value$plusargs("HEX_FILE=%s", hex_file)) begin
         $display("Loading %s into memory...", hex_file);

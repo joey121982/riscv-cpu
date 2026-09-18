@@ -4,9 +4,17 @@
 `include "branchtypes.svh"
 `include "dmem_types.svh"
 
-module top (
-    input logic clk,
-    input logic rst
+module core #(
+    parameter   int             IO_PORTS        = 3,
+    parameter   logic   [31:0]  MMIO_BASE       = 32'h8000,
+    parameter   string          PROGRAM_MEMORY  = "firmware.hex"
+) (
+    input   logic   clk,
+    input   logic   rst,
+
+    input   logic   [31:0]  io_in   [0:IO_PORTS-1],
+    output  logic   [31:0]  io_out  [0:IO_PORTS-1],
+    output  logic   [31:0]  io_dir  [0:IO_PORTS-1]
 );
     
 // Instruction Fetch
@@ -46,6 +54,10 @@ logic [31:0] alu_in_b;
 logic [31:0] alu_result;
 logic [31:0] dmem_rdata;
 
+// MMIO
+logic [31:0] mmio_rdata;
+logic        mmio_we;
+
 // PC Register
 always_ff @(posedge clk or posedge rst) begin
     if (rst) pc_reg <= 32'b0;
@@ -67,7 +79,9 @@ always_comb begin
 end
 
 // Instruction Memory
-imem my_imem (
+imem #(
+    .INIT_FILE(PROGRAM_MEMORY)
+) my_imem (
     .addr(pc_reg),
     .inst(instr)
 );
@@ -141,10 +155,12 @@ alu my_alu (
     .result(alu_result)
 );
 
+assign mmio_we = (alu_result >= MMIO_BASE) & mem_we;
+
 // Data Memory
 dmem my_dmem (
     .clk(clk),
-    .we(mem_we),
+    .we(mem_we & !mmio_we),
     .addr(alu_result),
     .w_data(rf_data2),
     .mem_size(mem_size),
@@ -152,11 +168,31 @@ dmem my_dmem (
     .r_data(dmem_rdata)
 );
 
+// MMIO module
+mmio #(
+    .NUM_PORTS(IO_PORTS),
+    .BASE_ADDR(MMIO_BASE)
+) my_mmio (
+    .clk(clk),
+    .we(mmio_we),
+    .addr(alu_result),
+    .w_data(rf_data2),
+    .mem_size(mem_size),
+    
+    .pin_in(io_in),
+    .pin_out(io_out),
+    .pin_dir(io_dir),
+    .r_data(mmio_rdata)
+);
+
+logic [31:0] mem_read_data;
+assign mem_read_data = (alu_result >= MMIO_BASE) ? mmio_rdata : dmem_rdata;
+
 // Writeback Multiplexer (result_src)
 always_comb begin
     case (result_src)
         RES_ALU: result = alu_result;
-        RES_MEM: result = dmem_rdata;
+        RES_MEM: result = mem_read_data;
         RES_PC:  result = pc_plus_4;
         RES_IMM: result = imm_ext;
         default: result = 32'b0;

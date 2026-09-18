@@ -3,7 +3,7 @@
 module dmem (
     input   logic           clk,
     input   logic           we,
-    input   mem_size_t      mem_size,   // ADDED: Control signal from CU
+    input   mem_size_t      mem_size,
 
     input   logic   [31:0]  addr,
     input   logic   [31:0]  w_data,
