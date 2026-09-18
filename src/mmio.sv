@@ -10,9 +10,9 @@ module mmio #(
     input   logic       [31:0]  w_data,
     input   mem_size_t          mem_size,
 
-    input   logic       [31:0]  pin_in      [0:NUM_PORTS-1], // IDR
-    output  logic       [31:0]  pin_out     [0:NUM_PORTS-1], // ODR
-    output  logic       [31:0]  pin_dir     [0:NUM_PORTS-1], // DDR
+    input   logic       [0:NUM_PORTS-1][31:0]   pin_in      , // IDR
+    output  logic       [0:NUM_PORTS-1][31:0]   pin_out     , // ODR
+    output  logic       [0:NUM_PORTS-1][31:0]   pin_dir     , // DDR
     output  logic       [31:0]  r_data
 );
 

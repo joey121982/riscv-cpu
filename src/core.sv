@@ -12,9 +12,9 @@ module core #(
     input   logic   clk,
     input   logic   rst,
 
-    input   logic   [31:0]  io_in   [0:IO_PORTS-1],
-    output  logic   [31:0]  io_out  [0:IO_PORTS-1],
-    output  logic   [31:0]  io_dir  [0:IO_PORTS-1]
+    input   logic   [0:IO_PORTS-1][31:0]    io_in ,
+    output  logic   [0:IO_PORTS-1][31:0]    io_out,
+    output  logic   [0:IO_PORTS-1][31:0]    io_dir
 );
     
 // Instruction Fetch
